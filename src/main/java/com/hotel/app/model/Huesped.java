@@ -1,15 +1,21 @@
 package com.hotel.app.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="huespedes")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Huesped {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_huespedes")
-    private String id;
+    private Long idHuesped;
 
     @Column(name = "numero_cedulad")
     private String numeroDocumento;
@@ -26,7 +32,7 @@ public class Huesped {
     @Column(name = "telefono_huesped")
     private String telefonoHuesped;
 
-    @Column(name = "correo_empleado")
+    @Column(name = "correo_huesped")
     private String email;
 
 
