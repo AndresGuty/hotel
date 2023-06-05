@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name="huespedes")
 @Data
@@ -26,7 +28,6 @@ public class Huesped {
     @Column(name = "apellido_huesped")
     private String apellidoHuesped;
 
-
     private String nacionalidad;
 
     @Column(name = "telefono_huesped")
@@ -34,6 +35,14 @@ public class Huesped {
 
     @Column(name = "correo_huesped")
     private String email;
+
+
+    private Long idReserva;
+
+    @OneToMany
+    @JoinColumn(name="idReserva")
+    List<Reserva> reservas;
+
 
 
 }

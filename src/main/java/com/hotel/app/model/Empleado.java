@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "empleados")
@@ -31,8 +33,15 @@ public class Empleado {
     @Column(name = "correo_empleado")
     private String email;
 
+    @Enumerated(EnumType.STRING)
     private Rol rol;
 
     private String password;
+
+    private Long idReserva;
+
+    @OneToMany
+    @JoinColumn(name="idReserva")
+    List<Reserva> reserva;
 
 }
